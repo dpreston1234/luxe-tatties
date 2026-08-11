@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Luxe Tatties</title>
+  <meta name="description" content="Get in touch with Van Ngo about a workshop or a tattoo booking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="brand">Luxe <span>Tatties</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="book-a-tattoo.html">Book a Tattoo</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom:32px;">
+      <div class="container" style="grid-template-columns: 1fr;">
+        <div class="hero-copy">
+          <span class="eyebrow">Get in touch</span>
+          <h1>Have a question? Send it over.</h1>
+          <p class="lede">Whether it's about a workshop or booking a tattoo, this form reaches Van directly. Prefer to book a time right away? Use the scheduling links on the <a href="workshops.html">Workshops</a> or <a href="book-a-tattoo.html">Book a Tattoo</a> pages instead.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:640px;">
+        <!-- PLACEHOLDER FORM: does not submit anywhere yet. See js/main.js
+             for the TODO on wiring a real form backend before launch. -->
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="inquiry-type">What's this about?</label>
+            <select id="inquiry-type" name="inquiry-type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="workshop">Workshop inquiry</option>
+              <option value="tattoo">Tattoo booking</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us a bit about what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note">This is a prototype form — submissions aren't sent anywhere yet. A real endpoint needs to be connected before launch.</p>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container text-center">
+        <span class="eyebrow">Or find us on Instagram</span>
+        <h2>Follow along</h2>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="https://www.instagram.com/vieglow.ca/" target="_blank" rel="noopener" class="btn btn-on-dark">@vieglow.ca</a>
+          <a href="https://www.instagram.com/luxetatties/" target="_blank" rel="noopener" class="btn btn-on-dark">@luxetatties</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Luxe Tatties</h4>
+          <p style="color:var(--color-text-muted); font-size:0.9rem;">Beginner micro-tattoo workshops &amp; fine-line tattoo booking with Van Ngo, based in BC.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="book-a-tattoo.html">Book a Tattoo</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/vieglow.ca/" target="_blank" rel="noopener">@vieglow.ca</a></li>
+            <li><a href="https://www.instagram.com/luxetatties/" target="_blank" rel="noopener">@luxetatties</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Luxe Tatties</span>
+        <span class="legal-pending">Vie Glow Academy Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
