@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Vie Glow monogram">
+  <!-- PLACEHOLDER MARK — stand-in until Van supplies her real logo.
+       Charcoal #3A3531 with a gold #B8933F dot. -->
+  <circle cx="24" cy="24" r="21" fill="none" stroke="#3A3531" stroke-width="1.2"/>
+  <path d="M14.5 17 L24 33.5 L33.5 17" fill="none" stroke="#3A3531"
+        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36.5" cy="12.5" r="4" fill="#B8933F"/>
+</svg>

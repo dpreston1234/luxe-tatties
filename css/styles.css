@@ -1,646 +1,822 @@
 /* ==========================================================================
-   Vie Glow Academy — shared stylesheet
-   Palette pulled from client-referenced moodboard (dribbble.com/shots/26113550):
-   deep espresso ink, warm mocha, cream, ivory. Type is deliberately mixed —
-   expressive serif for headlines, bold uppercase sans for section titles,
-   mono for labels/UI chrome, italic serif for card titles, plain sans body.
+   VIE GLOW — shared stylesheet
+
+   DIRECTION: bright, airy, minimal. Neutral + soft pastel, not girly.
+   Gold carries the accent work. Pink appears in exactly two places on the
+   whole site (the badge pill) and nowhere else — that is
+   deliberate, not an oversight.
+
+   PALETTE
+   Backgrounds are the client's Sherwin-Williams chips, used as a ladder of
+   pale bands. There are no black sections and no black footer; the deepest
+   tone on the site is a soft taupe used once per page at most.
+
+   CONTRAST (WCAG 2.1, verified)
+   #3A3531 on #F7F4EF ... 11.04:1  AAA  — body text, headings
+   #6F665C on #F7F4EF ....  5.13:1  AA   — muted/secondary text
+   #8A6B26 on #F7F4EF ....  4.54:1  AA   — gold links, prices, eyebrows
+   #B8933F on #F7F4EF ....  2.63:1  DECORATIVE ONLY — rules, borders, numerals
+   #F7F4EF on #5A5148 ....  7.08:1  AAA  — text on the soft taupe band
+   #FFFFFF on #3A3531 .... 11.9:1   AAA  — primary buttons
+   RULE: --gold is for lines and shapes. --gold-text is for anything you read.
    ========================================================================== */
 
 :root {
-  --color-ink: #2f2420;
-  --color-ink-soft: #423330;
-  --color-mocha: #93816b;
-  --color-mocha-dark: #766454;
-  --color-blush: #c9a488;
-  --color-cream: #e8e0cf;
-  --color-ivory: #f6f1e8;
-  --color-border: #d9cdb5;
-  --color-text: var(--color-ink);
-  --color-text-muted: #6e6053;
-  --color-white: #ffffff;
+  /* --- Client's Sherwin-Williams neutrals --- */
+  --sw-greek-villa:   #F0EAE0;  /* SW 7551 */
+  --sw-alabaster:     #EDEAE0;  /* SW 7008 */
+  --sw-dover-white:   #EFE5D4;  /* SW 6385 */
+  --sw-divine-white:  #E3D6C3;  /* SW 6105 — warmest, used sparingly */
+  --sw-origami-white: #E4E3DC;  /* SW 7636 */
+  --sw-pure-white:    #EDECE6;  /* SW 7005 */
+  --sw-ceiling-white: #E9E9E4;  /* SW 7007 */
+  --sw-fleur-de-sel:  #DEDEDA;  /* SW 7666 — borders, dividers */
 
-  --color-bg: var(--color-ivory);
-  --color-bg-alt: var(--color-cream);
-  --color-accent: var(--color-mocha);
-  --color-accent-dark: var(--color-mocha-dark);
+  /* --- Added: text tones, gold accent, one soft deep tone --- */
+  --ink:        #3A3531;   /* warm charcoal — softer than black, still 11:1 */
+  --muted:      #6F665C;
+  --deep:       #5A5148;   /* the darkest tone anywhere on this site */
+  --gold:       #B8933F;   /* DECORATIVE ONLY — rules, borders, big numerals */
+  --gold-text:  #8A6B26;   /* text-safe gold — links, prices, eyebrows */
+  --gold-soft:  #E8DCC0;   /* pale gold wash */
+  --gold-on-deep: #E0C88E;
+  --rose:       #C89A93;   /* USE SPARINGLY — badge pill only */
+  --rose-wash:  #F3E7E4;
+
+  --bg:        #F7F4EF;             /* page — bright, warm, airy */
+  --surface:   #FFFFFF;             /* cards float white on the warm bg */
+  --band-1:    var(--sw-greek-villa);
+  --band-2:    var(--sw-origami-white);
+  --band-warm: var(--sw-divine-white);
+  --border:    var(--sw-fleur-de-sel);
+  --border-soft: #EAE6DF;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-heading: "Fraunces", Georgia, serif;
-  --font-mono: "Space Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  --max-width: 1140px;
-  --radius: 2px;
+  --max-width: 1160px;
+  --radius: 4px;
+  --shadow: 0 1px 3px rgba(58, 53, 49, 0.04), 0 8px 24px rgba(58, 53, 49, 0.05);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 8% 0%, rgba(147, 129, 107, 0.10), transparent 42%),
-    radial-gradient(circle at 96% 18%, rgba(201, 164, 136, 0.14), transparent 38%),
-    var(--color-bg);
-  color: var(--color-text);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 19px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* Visible focus ring everywhere — keyboard and screen-reader users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold-text);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-a {
-  color: inherit;
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 14px 22px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
 }
+.skip-link:focus { left: 0; }
 
-h1, h2, h3, h4 {
-  margin: 0 0 0.5em;
-  line-height: 1.15;
-}
+h1, h2, h3, h4 { margin: 0 0 0.45em; line-height: 1.12; }
 
 h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.5rem, 5.6vw, 4rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  letter-spacing: -0.02em;
 }
 
-h1 em,
-.accent-italic {
+h1 em, .accent-italic {
   font-style: italic;
   font-weight: 500;
-  color: var(--color-mocha-dark);
+  color: var(--gold-text);
 }
 
 h2 {
-  font-family: var(--font-body);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  letter-spacing: -0.015em;
 }
 
 h3 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: 1.35rem;
+  letter-spacing: -0.005em;
 }
 
-p { margin: 0 0 1em; }
+h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+p { margin: 0 0 1.1em; }
 
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
+.narrow { max-width: 720px; }
+
+/* Section label. Readable size — not 11px mono. */
 .eyebrow {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.72rem;
-  color: var(--color-mocha-dark);
-  font-weight: 700;
-  margin-bottom: 0.9em;
   display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid var(--color-mocha);
-  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-text);
+  margin-bottom: 1em;
+}
+
+.lede {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40ch;
 }
 
 /* ---------- Header / Nav ---------- */
 
 .site-header {
-  border-bottom: 2px solid var(--color-ink);
-  background: var(--color-ivory);
+  background: rgba(247, 244, 239, 0.88);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-soft);
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
 }
 
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   padding-top: 18px;
   padding-bottom: 18px;
 }
 
+/* --- Brand lockup ---------------------------------------------------------
+   PLACEHOLDER WORDMARK. Van's Instagram avatar could not be downloaded
+   (Instagram blocks automated access), so this is a typographic stand-in
+   built from the site's own fonts. It scales perfectly and needs no image
+   file. When Van sends the real high-res logo, replace the whole
+   <a class="brand"> block on every page with:
+       <a href="/" class="brand"><img src="assets/images/logo.svg" alt="Vie Glow"></a>
+   and nothing else needs to change.
+   -------------------------------------------------------------------------- */
+
 .brand {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  letter-spacing: 0.01em;
+  flex-shrink: 0;
+  color: var(--ink);
 }
 
-.brand span {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--color-mocha-dark);
+.brand img { height: 46px; width: auto; }
+
+.brand-monogram { height: 40px; width: 40px; flex-shrink: 0; }
+
+.brand-text { display: flex; flex-direction: column; line-height: 1; }
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-top: 5px;
+}
+
+.site-footer .brand-name { color: var(--ink); }
+.site-footer .brand-tag { color: var(--gold-text); }
+
+@media (max-width: 480px) {
+  .brand-name { font-size: 1.35rem; }
+  .brand-tag { font-size: 0.6rem; letter-spacing: 0.16em; }
+  .brand-monogram { height: 34px; width: 34px; }
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 26px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
-  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 500;
   text-decoration: none;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text);
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  color: var(--ink);
+  padding: 13px 0;           /* keeps the click target at 44px+ */
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  border-color: var(--color-mocha-dark);
-  color: var(--color-mocha-dark);
+  border-color: var(--gold);
+  color: var(--gold-text);
 }
 
 .nav-toggle {
   display: none;
-  background: var(--color-ink);
-  color: var(--color-ivory);
+  background: var(--ink);
+  color: #ffffff;
   border: none;
   border-radius: var(--radius);
-  padding: 8px 12px;
+  padding: 12px 16px;
   font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   cursor: pointer;
+  min-height: 48px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .nav-toggle { display: inline-block; }
+  .site-header .container { position: relative; }
 
-  .nav-links {
+  .nav-wrap {
     display: none;
-    flex-direction: column;
-    gap: 16px;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-ivory);
-    border-bottom: 2px solid var(--color-ink);
-    padding: 20px 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 12px 28px 24px;
   }
 
-  .nav-links.open { display: flex; }
+  .nav-wrap.open { display: flex; }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.15rem;
+  }
+
+  .nav-wrap .btn { margin-top: 18px; text-align: center; }
 }
 
 /* ---------- Buttons ---------- */
+/* 52px min height — comfortable tap target for older hands on mobile. */
 
 .btn {
   display: inline-block;
-  padding: 14px 26px;
+  padding: 16px 32px;
+  min-height: 52px;
   border-radius: var(--radius);
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  text-align: center;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary {
-  background: var(--color-ink);
-  color: var(--color-ivory);
-  border-color: var(--color-ink);
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
 }
+.btn-primary:hover { background: var(--deep); border-color: var(--deep); }
 
-.btn-primary:hover {
-  background: var(--color-mocha-dark);
-  border-color: var(--color-mocha-dark);
-  transform: translateY(-1px);
+/* The loud button. Charcoal fill rather than a gold block — a big slab of
+   gold reads cheap, whereas gold as a line reads expensive. */
+.btn-accent {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
 }
+.btn-accent:hover { background: var(--deep); border-color: var(--deep); }
+
+/* Quiet button with a gold hairline — the site's signature control */
+.btn-gold {
+  background: transparent;
+  color: var(--gold-text);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: var(--gold-soft); color: var(--ink); }
 
 .btn-secondary {
   background: transparent;
-  color: var(--color-ink);
-  border-color: var(--color-ink);
+  color: var(--ink);
+  border-color: var(--ink);
 }
+.btn-secondary:hover { background: var(--ink); color: #ffffff; }
 
-.btn-secondary:hover {
-  background: var(--color-ink);
-  color: var(--color-ivory);
+.btn-on-deep {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--bg);
 }
+.btn-on-deep:hover { background: transparent; color: var(--bg); border-color: var(--bg); }
 
-.btn-on-dark {
-  border-color: var(--color-ivory);
-  color: var(--color-ivory);
-}
+.btn-lg { font-size: 1.1rem; padding: 20px 40px; min-height: 60px; }
 
-.btn-on-dark:hover {
-  background: var(--color-ivory);
-  color: var(--color-ink);
-}
+.btn-block { display: block; width: 100%; }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 88px 0 64px;
-  border-bottom: 2px solid var(--color-ink);
-  position: relative;
+  padding: 100px 0 92px;
+  background: var(--bg);
 }
 
 .hero .container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
   align-items: center;
 }
 
-.hero-copy p.lede {
-  font-size: 1.15rem;
-  color: var(--color-text-muted);
-  max-width: 46ch;
-}
+.hero h1 { margin-bottom: 0.3em; }
 
 .hero-actions {
   display: flex;
   gap: 16px;
-  margin-top: 28px;
+  margin-top: 34px;
   flex-wrap: wrap;
 }
 
-.hero-media .placeholder {
-  aspect-ratio: 4 / 5;
+.hero-media .photo { aspect-ratio: 4 / 5; }
+
+@media (max-width: 900px) {
+  .hero { padding: 48px 0 52px; }
+  .hero .container { grid-template-columns: 1fr; gap: 40px; }
+  .lede { max-width: none; }
+  .hero-actions .btn { flex: 1 1 240px; }
 }
 
-/* ---------- Real photo treatment ---------- */
-/* For actual <img> assets (not the dashed-border .placeholder divs) — solid
-   border matches the card/box language instead of the "not-final-yet" dash. */
+/* ---------- Media ---------- */
 
 .photo {
   width: 100%;
   object-fit: cover;
-  border: 2px solid var(--color-ink);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   display: block;
+  background: var(--band-2);
 }
-
-.hero-media .photo {
-  aspect-ratio: 4 / 5;
-  height: auto;
-}
-
-.gallery .photo {
-  min-height: 0;
-  height: 100%;
-}
-
-@media (max-width: 820px) {
-  .hero .container { grid-template-columns: 1fr; }
-  .hero { padding: 56px 0 40px; }
-}
-
-/* ---------- Placeholder media block ---------- */
-/* PLACEHOLDER: swap for real client-provided photography before launch */
 
 .placeholder {
-  background:
-    linear-gradient(155deg, var(--color-cream) 0%, var(--color-blush) 55%, var(--color-mocha) 100%);
-  border: 2px dashed var(--color-ink);
+  background: repeating-linear-gradient(
+    45deg,
+    #F2ECE0,
+    #F2ECE0 14px,
+    var(--sw-dover-white) 14px,
+    var(--sw-dover-white) 28px
+  );
+  border: 1px dashed var(--gold);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--color-ink);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
   padding: 24px;
   min-height: 220px;
 }
 
-/* ---------- Section ---------- */
+/* ---------- Sections ---------- */
 
-.section {
-  padding: 72px 0;
-  border-bottom: 1px solid var(--color-border);
+.section { padding: 104px 0; }
+.section-tight { padding: 56px 0; }
+
+.section-warm { background: var(--band-warm); }
+.section-cool { background: var(--band-2); }
+.section-light { background: var(--band-1); }
+.section-surface { background: var(--surface); }
+
+/* The one deep band. Soft taupe, never black — it exists to give photos
+   something to sit against, not to add weight. Use at most once per page. */
+.section-deep {
+  background: var(--deep);
+  color: var(--bg);
 }
 
-.section-alt {
-  background: var(--color-cream);
+.section-deep .eyebrow { color: var(--gold-on-deep); }
+.section-deep h1 em,
+.section-deep .accent-italic { color: var(--gold-on-deep); }
+.section-deep .lede,
+.section-deep > .container > p { color: #DCD5CB; }
+
+.section-header { max-width: 62ch; margin-bottom: 48px; }
+.section-header p { color: var(--muted); font-size: 1.15rem; }
+.section-header.text-center { margin-left: auto; margin-right: auto; }
+.section-deep .section-header p { color: #DCD5CB; }
+
+@media (max-width: 900px) {
+  .section { padding: 56px 0; }
+  .section-header { margin-bottom: 32px; }
 }
 
-.section-dark {
-  background: var(--color-ink);
-  color: var(--color-ivory);
-  border-bottom: none;
-}
+/* ---------- Cards ---------- */
 
-/* Text sitting directly on the dark background gets the light tone — but
-   NOT text inside a nested light .card, which needs its own readable
-   (dark-on-light) color regardless of the section it's placed in. */
-.section-dark > .container > .section-header p,
-.section-dark > .container > p,
-.section-dark > .container > .text-center > p {
-  color: #cabfae;
-}
-
-.section-dark .card:not(.card-fill) {
-  color: var(--color-ink);
-}
-
-.section-dark .card:not(.card-fill) p {
-  color: var(--color-text-muted);
-}
-
-.section-dark .eyebrow {
-  border-color: var(--color-blush);
-  color: var(--color-blush);
-}
-
-.section-header {
-  max-width: 60ch;
-  margin-bottom: 40px;
-}
-
-.section-header p {
-  color: var(--color-text-muted);
-}
-
-/* ---------- Cards / grid ---------- */
-
-.grid {
-  display: grid;
-  gap: 24px;
-}
-
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid { display: grid; gap: 28px; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
 
-@media (max-width: 820px) {
-  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
 
 .card {
-  background: var(--color-ivory);
-  border: 2px solid var(--color-ink);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
 }
 
-.card h3 {
-  margin-bottom: 0.4em;
-}
+.card h3 { margin-bottom: 0.4em; }
+.card p { color: var(--muted); }
+.card .btn { margin-top: auto; align-self: flex-start; }
+/* Flex column would otherwise stretch the pill to the full card width */
+.card .badge,
+.service-card .badge { align-self: flex-start; }
 
-.card .price {
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-mocha-dark);
-  margin: 12px 0;
-}
-
-/* Bento-style card variants — mix filled / outline / tinted so a grid of
-   cards doesn't read as one flat repeated box. Apply alongside .card. */
-
+/* The "featured" card. A pale gold wash and a gold hairline instead of a
+   black slab — same emphasis, none of the heaviness. */
 .card-fill {
-  background: var(--color-ink);
-  color: var(--color-ivory);
-  border-color: var(--color-ink);
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  border-width: 1px;
+  box-shadow: none;
+}
+.card-fill h3 { color: var(--ink); }
+.card-fill p { color: #6B6055; }
+
+.card-warm { background: var(--band-warm); border-color: var(--gold); }
+.card-plain { background: transparent; box-shadow: none; }
+
+/* Service card — the BrowFairy pattern: name, price, duration, book button */
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.card-fill h3 {
-  color: var(--color-blush);
+.service-card .service-body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
+.service-card h3 { font-size: 1.5rem; }
+.service-card p { color: var(--muted); }
+
+/* margin-top:auto pins price + button to the bottom of every card, so a row
+   of cards with different copy lengths still lines its prices up. */
+.service-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: baseline;
+  margin: auto 0 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 }
 
-.card-fill p {
-  color: #cabfae;
+.price {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--gold-text);
+  line-height: 1.1;
 }
 
-.card-tint {
-  background: var(--color-cream);
-  border-color: var(--color-mocha);
+.duration { font-size: 1rem; font-weight: 500; color: var(--muted); }
+
+/* ---------- Big numbered steps ---------- */
+
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+.steps li:last-child { border-bottom: none; }
+
+.steps li::before {
+  content: counter(step);
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
 }
 
-.card-outline {
-  background: transparent;
-  border: 2px solid var(--color-mocha-dark);
-}
+.steps h3 { margin-bottom: 0.25em; }
+.steps p { margin: 0; color: var(--muted); }
 
-/* ---------- Gallery (bento-style, mixed tile sizes) ---------- */
-/* Column-span varies, height comes from aspect-ratio (not row-span), and
-   align-items:start lets tiles sit at different heights — a staggered,
-   bento-board look instead of one uniform grid of identical boxes. */
+/* ---------- Gallery ---------- */
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  gap: 18px;
   align-items: start;
 }
 
-.gallery .placeholder {
-  min-height: 0;
-}
-
-.gallery .tile-wide { grid-column: span 4; aspect-ratio: 16 / 9; }
+.gallery .placeholder { min-height: 0; }
+.gallery .tile-wide { grid-column: span 4; aspect-ratio: 16 / 10; }
 .gallery .tile-tall { grid-column: span 2; aspect-ratio: 3 / 4; }
 .gallery .tile-sq   { grid-column: span 2; aspect-ratio: 1 / 1; }
+.gallery .photo { height: 100%; }
 
-@media (max-width: 720px) {
-  .gallery { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .gallery .tile-wide,
   .gallery .tile-tall,
   .gallery .tile-sq { grid-column: span 1; aspect-ratio: 4 / 5; }
 }
 
+/* ---------- Info rows (hours, location, contact) ---------- */
+
+.info-list { list-style: none; margin: 0; padding: 0; }
+
+.info-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.05rem;
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list .label { font-weight: 600; }
+.info-list .value { color: var(--muted); text-align: right; }
+
 /* ---------- Forms ---------- */
 
-.form-group {
-  margin-bottom: 20px;
-}
+.form-group { margin-bottom: 24px; }
 
 label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 15px 16px;
+  min-height: 52px;
   font-family: var(--font-body);
-  font-size: 1rem;
-  border: 2px solid var(--color-ink);
+  font-size: 1.05rem;
+  border: 1px solid #CFC7BA;
   border-radius: var(--radius);
-  background: var(--color-ivory);
-  color: var(--color-text);
+  background: #ffffff;
+  color: var(--ink);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid var(--color-mocha);
-  outline-offset: 1px;
-}
+textarea { min-height: 160px; resize: vertical; }
 
-textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-.form-note {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--color-text-muted);
-  margin-top: 10px;
-}
+.form-note { font-size: 0.95rem; color: var(--muted); margin-top: 12px; }
 
 .form-status {
-  margin-top: 16px;
-  font-size: 0.9rem;
+  margin-top: 18px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  background: var(--gold-soft);
   display: none;
 }
+.form-status.visible { display: block; }
 
-.form-status.visible {
-  display: block;
-}
-
-/* ---------- Booking embed placeholder ---------- */
-/* PLACEHOLDER: replace with the live vieglow.as.me embed/iframe before launch.
-   Static prototypes can't reliably embed a third-party scheduling iframe
-   (cross-origin + requires a live server), so this is a labeled stand-in. */
+/* ---------- Booking embed ---------- */
 
 .booking-embed {
-  border: 2px dashed var(--color-ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 40px 24px;
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.booking-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  min-height: 800px;
+}
+
+.booking-fallback {
+  padding: 40px 28px;
   text-align: center;
-  background: var(--color-cream);
+  background: var(--gold-soft);
 }
+.booking-fallback p { max-width: 46ch; margin: 0 auto 22px; color: var(--muted); }
 
-.booking-embed h3 {
-  margin-bottom: 0.3em;
-}
+/* ---------- Widget slots (Instagram feed / Google reviews) ---------- */
+/* Each slot has a visible fallback that is replaced when the paid widget
+   snippet is pasted in. Nothing looks broken before the widget is added. */
 
-.booking-embed p {
-  color: var(--color-text-muted);
-  max-width: 42ch;
-  margin: 0 auto 20px;
+.widget-slot { min-height: 120px; }
+
+.widget-fallback {
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 44px 28px;
+  text-align: center;
 }
+.widget-fallback p { max-width: 48ch; margin: 0 auto 22px; color: var(--muted); }
+
+/* Static review cards — used until the live Google widget is connected */
+
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.review-card .stars {
+  color: var(--gold);
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.review-card blockquote {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+.review-card cite { font-style: normal; font-weight: 600; font-size: 1rem; }
+
+/* ---------- Callout ---------- */
+
+.callout {
+  background: var(--gold-soft);
+  border-left: 6px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  margin: 32px 0;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout h3 { margin-bottom: 0.35em; }
 
 /* ---------- Footer ---------- */
 
+/* Light footer. A black footer anchors a page down; a pale one with a gold
+   hairline keeps the whole thing feeling open to the last pixel. */
 .site-footer {
-  border-top: 2px solid var(--color-ink);
-  padding: 48px 0 32px;
-  background: var(--color-ink);
-  color: var(--color-ivory);
+  background: var(--band-1);
+  color: var(--ink);
+  border-top: 2px solid var(--gold);
+  padding: 64px 0 32px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 32px;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 44px;
 }
 
 .footer-grid h4 {
-  font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.78rem;
-  margin-bottom: 12px;
-  color: var(--color-blush);
-}
-
-.footer-grid ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-grid li {
-  margin-bottom: 8px;
-}
-
-.footer-grid a {
-  text-decoration: none;
-  color: #cabfae;
+  letter-spacing: 0.12em;
   font-size: 0.9rem;
+  margin-bottom: 16px;
+  color: var(--gold-text);
 }
 
-.footer-grid a:hover {
-  color: var(--color-ivory);
-}
+.footer-grid p { color: var(--muted); font-size: 1rem; }
+.footer-grid ul { list-style: none; margin: 0; padding: 0; }
+.footer-grid li { margin-bottom: 12px; }
+.footer-grid a { text-decoration: none; color: var(--muted); font-size: 1.05rem; }
+.footer-grid a:hover { color: var(--gold-text); text-decoration: underline; }
+
+.footer-logo { height: 44px; width: auto; margin-bottom: 18px; }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-ink-soft);
-  padding-top: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: #a89a86;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  font-size: 0.95rem;
+  color: var(--muted);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
-/* PENDING CONFIRMATION: whether "Vie Glow Academy Inc." should appear here —
-   see client-brief.md open questions. Included for now, easy to remove. */
-.legal-pending {
-  opacity: 0.85;
-}
-
-@media (max-width: 720px) {
-  .footer-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 34px; }
 }
 
 /* ---------- Utility ---------- */
 
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-lg { margin-top: 40px; }
+.stack-center { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
+/* PINK LIVES HERE AND NOWHERE ELSE (plus the logo dot).
+   Muted rose wash, charcoal text — reads soft, not girly. If you want it
+   gone entirely, change --rose-wash to var(--gold-soft) and the pink
+   disappears from the site in one edit. */
 .badge {
   display: inline-block;
-  background: var(--color-ivory);
-  border: 1px solid var(--color-ink);
+  background: var(--rose-wash);
+  border: 1px solid #E4CFC9;
   border-radius: 999px;
-  padding: 4px 12px;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-ink);
-  margin-right: 8px;
-  margin-bottom: 8px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 8px 12px 0;
 }
 
 .card-fill .badge {
-  background: var(--color-ink);
-  border-color: var(--color-blush);
-  color: var(--color-blush);
+  background: #ffffff;
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

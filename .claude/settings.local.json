@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(python3 -m http.server 8743)",
+      "Bash(python3 -m http.server 8912)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8912/index.html)",
+      "Bash(lsof -ti:8912)",
+      "Bash(xargs -r kill)",
+      "Bash(lsof -ti:8743)",
+      "Bash(python3 -m http.server 8955)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8955/index.html)",
+      "Bash(curl -s http://localhost:8955/css/styles.css)",
+      "Bash(lsof -ti:8955)",
+      "Bash(git add *)",
+      "Bash(git commit)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(ssh-add -l)",
+      "Bash(git fetch *)",
+      "Bash(git commit *)",
+      "Bash(cp /var/folders/75/3tks7f894rg_jstkpnf7pd780000gn/T/claude-chrome-screenshots-9g1IeR/screenshot-1786415427580-21.png '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/assets/images/van-studio-academy.jpg')",
+      "Bash(cp /var/folders/75/3tks7f894rg_jstkpnf7pd780000gn/T/claude-chrome-screenshots-9g1IeR/screenshot-1786415430824-22.png '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/assets/images/van-headshot.jpg')",
+      "Bash(cp /var/folders/75/3tks7f894rg_jstkpnf7pd780000gn/T/claude-chrome-screenshots-9g1IeR/screenshot-1786415445582-23.png '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/assets/images/van-studio-mirror.jpg')",
+      "Bash(cp /var/folders/75/3tks7f894rg_jstkpnf7pd780000gn/T/claude-chrome-screenshots-9g1IeR/screenshot-1786415503876-25.png '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/assets/images/van-portrait.jpg')",
+      "Bash(cp /var/folders/75/3tks7f894rg_jstkpnf7pd780000gn/T/claude-chrome-screenshots-9g1IeR/screenshot-1786415539461-26.png '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/assets/images/van-studio-hallway.jpg')",
+      "Bash(python3 -m http.server 8971)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8971/index.html)",
+      "Bash(lsof -ti:8971)",
+      "Bash(sed -i '' '1s|^# Luxe Tatties$|# Vie Glow Academy|' '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/README.md')",
+      "Bash(sed -i '' 's|Prototype website for Luxe Tatties \\(Van Ngo / Vie Glow Academy Inc\\\\.\\)|Prototype website for Vie Glow Academy Inc. \\(Van Ngo\\)|' '/Users/desireepreston/Library/Application Support/Claude/local-agent-mode-sessions/7617911d-3728-4af8-8cca-cc5044f05a02/56778122-cec0-4659-a5c5-8d0ef088dfbb/local_970562dd-2129-46fe-9f36-74b0e054d49d/outputs/clients/luxe/README.md')",
+      "Bash(python3 -m http.server 8988)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8988/index.html)",
+      "Bash(lsof -ti:8988)"
+    ]
+  }
+}
