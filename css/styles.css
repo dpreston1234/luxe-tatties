@@ -1,62 +1,60 @@
 /* ==========================================================================
    VIE GLOW — shared stylesheet
 
-   DIRECTION: bright, airy, minimal. Neutral + soft pastel, not girly.
-   Gold carries the accent work. Pink appears in exactly two places on the
-   whole site (the badge pill) and nowhere else — that is
-   deliberate, not an oversight.
+   DIRECTION: bright, airy, minimal. Roughly white 70 / grey 15 / black 10 /
+   gold 5. No pink anywhere — the only warm note is the gold, and the pink in
+   Van's logo artwork itself.
 
    PALETTE
-   Backgrounds are the client's Sherwin-Williams chips, used as a ladder of
-   pale bands. There are no black sections and no black footer; the deepest
-   tone on the site is a soft taupe used once per page at most.
+   White and ivory carry the page. Grey does the quiet structural work
+   (bands, borders, secondary text). Black is spent only on type and the
+   primary buttons. Gold is a hairline, never a fill.
 
    CONTRAST (WCAG 2.1, verified)
-   #3A3531 on #F7F4EF ... 11.04:1  AAA  — body text, headings
-   #6F665C on #F7F4EF ....  5.13:1  AA   — muted/secondary text
-   #8A6B26 on #F7F4EF ....  4.54:1  AA   — gold links, prices, eyebrows
-   #B8933F on #F7F4EF ....  2.63:1  DECORATIVE ONLY — rules, borders, numerals
-   #F7F4EF on #5A5148 ....  7.08:1  AAA  — text on the soft taupe band
-   #FFFFFF on #3A3531 .... 11.9:1   AAA  — primary buttons
-   RULE: --gold is for lines and shapes. --gold-text is for anything you read.
+   #1F1E1C on #FFFFFF ... 16.66:1  AAA  — headings, body
+   #1F1E1C on #EFEEEC ... 14.37:1  AAA  — on the grey band
+   #6A665F on #FFFFFF ....  5.71:1  AA   — muted/secondary text
+   #806222 on #FFFFFF ....  5.5:1   AA   — gold links, prices, eyebrows
+   #806222 on #EFEEEC ....  4.91:1  AA   — same, on the grey band
+   #B8933F on #FFFFFF ....  2.88:1  DECORATIVE ONLY — rules, borders
+   #FFFFFF on #1F1E1C ... 16.66:1  AAA  — primary buttons
+   RULE: --gold is for lines. --gold-text is for anything you read.
    ========================================================================== */
 
 :root {
-  /* --- Client's Sherwin-Williams neutrals --- */
-  --sw-greek-villa:   #F0EAE0;  /* SW 7551 */
-  --sw-alabaster:     #EDEAE0;  /* SW 7008 */
-  --sw-dover-white:   #EFE5D4;  /* SW 6385 */
-  --sw-divine-white:  #E3D6C3;  /* SW 6105 — warmest, used sparingly */
-  --sw-origami-white: #E4E3DC;  /* SW 7636 */
-  --sw-pure-white:    #EDECE6;  /* SW 7005 */
-  --sw-ceiling-white: #E9E9E4;  /* SW 7007 */
-  --sw-fleur-de-sel:  #DEDEDA;  /* SW 7666 — borders, dividers */
+  /* --- The four tones --- */
+  --white:      #FFFFFF;
+  --ivory:      #F8F6F1;   /* off-white / cream band */
+  --gray-band:  #EFEEEC;   /* light grey band */
+  --gray-line:  #DEDEDA;   /* SW 7666 Fleur de Sel — borders, rules */
+  --muted:      #6A665F;   /* grey text */
+  --black:      #1F1E1C;
+  --gold:       #B8933F;   /* DECORATIVE ONLY — rules, borders, numerals */
+  --gold-text:  #806222;   /* text-safe gold */
+  --gold-soft:  #F2EADA;   /* palest gold wash */
 
-  /* --- Added: text tones, gold accent, one soft deep tone --- */
-  --ink:        #3A3531;   /* warm charcoal — softer than black, still 11:1 */
-  --muted:      #6F665C;
-  --deep:       #5A5148;   /* the darkest tone anywhere on this site */
-  --gold:       #B8933F;   /* DECORATIVE ONLY — rules, borders, big numerals */
-  --gold-text:  #8A6B26;   /* text-safe gold — links, prices, eyebrows */
-  --gold-soft:  #E8DCC0;   /* pale gold wash */
-  --gold-on-deep: #E0C88E;
-  --rose:       #C89A93;   /* USE SPARINGLY — badge pill only */
-  --rose-wash:  #F3E7E4;
+  /* --- Kept from the client's Sherwin-Williams set --- */
+  --sw-fleur-de-sel:  #DEDEDA;
+  --sw-origami-white: #E4E3DC;
+  --sw-pure-white:    #EDECE6;
 
-  --bg:        #F7F4EF;             /* page — bright, warm, airy */
-  --surface:   #FFFFFF;             /* cards float white on the warm bg */
-  --band-1:    var(--sw-greek-villa);
-  --band-2:    var(--sw-origami-white);
-  --band-warm: var(--sw-divine-white);
-  --border:    var(--sw-fleur-de-sel);
-  --border-soft: #EAE6DF;
+  --ink:       var(--black);
+  --bg:        var(--white);
+  --surface:   var(--white);
+  --band-1:    var(--ivory);
+  --band-2:    var(--gray-band);
+  --band-warm: var(--ivory);
+  --deep:      #2E2C29;
+  --border:    var(--gray-line);
+  --border-soft: #E9E7E3;
+  --gold-on-deep: #D9B86F;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --max-width: 1160px;
   --radius: 4px;
-  --shadow: 0 1px 3px rgba(58, 53, 49, 0.04), 0 8px 24px rgba(58, 53, 49, 0.05);
+  --shadow: 0 1px 2px rgba(31, 30, 28, 0.04), 0 8px 24px rgba(31, 30, 28, 0.05);
 }
 
 * { box-sizing: border-box; }
@@ -166,10 +164,10 @@ p { margin: 0 0 1.1em; }
 /* ---------- Header / Nav ---------- */
 
 .site-header {
-  background: rgba(247, 244, 239, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 30;
@@ -185,13 +183,10 @@ p { margin: 0 0 1.1em; }
 }
 
 /* --- Brand lockup ---------------------------------------------------------
-   PLACEHOLDER WORDMARK. Van's Instagram avatar could not be downloaded
-   (Instagram blocks automated access), so this is a typographic stand-in
-   built from the site's own fonts. It scales perfectly and needs no image
-   file. When Van sends the real high-res logo, replace the whole
-   <a class="brand"> block on every page with:
-       <a href="/" class="brand"><img src="assets/images/logo.svg" alt="Vie Glow"></a>
-   and nothing else needs to change.
+   Van's real logo. The source artwork is square with a lot of empty space
+   around it, so it is cropped tight and sized by height. Swapping it later
+   means replacing the file at assets/images/vieglow-logo.png — nothing here
+   needs to change.
    -------------------------------------------------------------------------- */
 
 .brand {
@@ -203,9 +198,9 @@ p { margin: 0 0 1.1em; }
   color: var(--ink);
 }
 
-.brand img { height: 46px; width: auto; }
+.brand-logo { height: 54px; width: auto; }
 
-.brand-monogram { height: 40px; width: 40px; flex-shrink: 0; }
+.site-footer .brand-logo { height: 62px; }
 
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 
@@ -230,9 +225,7 @@ p { margin: 0 0 1.1em; }
 .site-footer .brand-tag { color: var(--gold-text); }
 
 @media (max-width: 480px) {
-  .brand-name { font-size: 1.35rem; }
-  .brand-tag { font-size: 0.6rem; letter-spacing: 0.16em; }
-  .brand-monogram { height: 34px; width: 34px; }
+  .brand-logo { height: 42px; }
 }
 
 .nav-wrap {
@@ -422,10 +415,10 @@ p { margin: 0 0 1.1em; }
 .placeholder {
   background: repeating-linear-gradient(
     45deg,
-    #F2ECE0,
-    #F2ECE0 14px,
-    var(--sw-dover-white) 14px,
-    var(--sw-dover-white) 28px
+    #F4F3F1,
+    #F4F3F1 14px,
+    #EAE8E5 14px,
+    #EAE8E5 28px
   );
   border: 1px dashed var(--gold);
   border-radius: var(--radius);
@@ -484,8 +477,8 @@ p { margin: 0 0 1.1em; }
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 34px;
   display: flex;
@@ -503,7 +496,7 @@ p { margin: 0 0 1.1em; }
 /* The "featured" card. A pale gold wash and a gold hairline instead of a
    black slab — same emphasis, none of the heaviness. */
 .card-fill {
-  background: var(--gold-soft);
+  background: var(--ivory);
   border-color: var(--gold);
   border-width: 1px;
   box-shadow: none;
@@ -517,8 +510,8 @@ p { margin: 0 0 1.1em; }
 /* Service card — the BrowFairy pattern: name, price, duration, book button */
 
 .service-card {
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
+  background: var(--white);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 0;
@@ -734,9 +727,9 @@ textarea { min-height: 160px; resize: vertical; }
 /* Light footer. A black footer anchors a page down; a pale one with a gold
    hairline keeps the whole thing feeling open to the last pixel. */
 .site-footer {
-  background: var(--band-1);
+  background: var(--ivory);
   color: var(--ink);
-  border-top: 2px solid var(--gold);
+  border-top: 1px solid var(--gold);
   padding: 64px 0 32px;
 }
 
@@ -786,14 +779,11 @@ textarea { min-height: 160px; resize: vertical; }
 .mt-lg { margin-top: 40px; }
 .stack-center { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
-/* PINK LIVES HERE AND NOWHERE ELSE (plus the logo dot).
-   Muted rose wash, charcoal text — reads soft, not girly. If you want it
-   gone entirely, change --rose-wash to var(--gold-soft) and the pink
-   disappears from the site in one edit. */
+/* No pink. Ivory pill, grey hairline, black text. */
 .badge {
   display: inline-block;
-  background: var(--rose-wash);
-  border: 1px solid #E4CFC9;
+  background: var(--ivory);
+  border: 1px solid var(--gray-line);
   border-radius: 999px;
   padding: 6px 16px;
   font-size: 0.9rem;
@@ -803,8 +793,8 @@ textarea { min-height: 160px; resize: vertical; }
 }
 
 .card-fill .badge {
-  background: #ffffff;
-  border-color: var(--gold);
+  background: var(--white);
+  border-color: var(--gray-line);
   color: var(--ink);
 }
 
