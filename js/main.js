@@ -1,4 +1,4 @@
-// Luxe Tatties — shared site JS
+// Vie Glow Academy — shared site JS
 // Handles: mobile nav toggle, contact form submission (placeholder).
 
 document.addEventListener("DOMContentLoaded", () => {

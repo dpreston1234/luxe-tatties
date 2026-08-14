@@ -1,6 +1,6 @@
-# Luxe Tatties
+# Vie Glow Academy
 
-Prototype website for Luxe Tatties (Van Ngo / Vie Glow Academy Inc.) — beginner micro-tattoo workshops and fine-line tattoo booking, based in BC.
+Prototype website for Vie Glow Academy Inc. (Van Ngo) — beginner micro-tattoo workshops and fine-line tattoo booking, based in BC.
 
 ## Before this goes live
 
