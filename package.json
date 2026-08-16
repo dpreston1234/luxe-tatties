@@ -1,0 +1,10 @@
+{
+  "name": "vieglow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vie Glow website. No dependencies on purpose.",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

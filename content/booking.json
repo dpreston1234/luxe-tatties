@@ -1,0 +1,50 @@
+{
+  "title": "Book a Tattoo — Vie Glow",
+  "description": "Book a fine-line, minimalist tattoo appointment with Van Ngo in British Columbia.",
+  "hero_eyebrow": "Client Tattoo Booking",
+  "hero_heading": "Fine-line tattoos, done with care.",
+  "hero_text": "Van takes a limited number of client appointments alongside her teaching. Every piece is one-on-one: no rush, no crowd, just careful linework.",
+  "hero_image": "/assets/images/tattoo-work-inprogress.jpg",
+  "hero_image_alt": "Fine-line tattoo work in progress",
+  "hero_button_1_label": "Book an appointment",
+  "hero_button_2_label": "See the portfolio",
+  "process_eyebrow": "What to expect",
+  "process_heading": "How booking works",
+  "steps": [
+    {
+      "title": "Reach out",
+      "text": "Send your design idea, placement and rough size using the calendar below or the contact page."
+    },
+    {
+      "title": "Confirm the details",
+      "text": "Van follows up to confirm the design, timing, and any deposit needed to hold your slot."
+    },
+    {
+      "title": "Your appointment",
+      "text": "A calm, unhurried session — plus clear written aftercare guidance to take home."
+    }
+  ],
+  "policy_eyebrow": "Please note",
+  "policy_heading": "Booking policy",
+  "policies": [
+    {
+      "label": "Minimum age",
+      "value": "18+ only, no exceptions"
+    },
+    {
+      "label": "Deposit",
+      "value": "May be required to confirm — policy TBC"
+    },
+    {
+      "label": "Aftercare",
+      "value": "Written instructions provided at every appointment"
+    },
+    {
+      "label": "Location",
+      "value": "Vancouver, British Columbia"
+    }
+  ],
+  "policy_note": "Deposit policy is a placeholder — confirm exact terms with Van before launch.",
+  "booking_eyebrow": "Reserve your spot",
+  "booking_heading": "Book your appointment"
+}

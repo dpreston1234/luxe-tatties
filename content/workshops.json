@@ -1,0 +1,64 @@
+{
+  "title": "Workshops — Vie Glow",
+  "description": "Beginner micro-tattoo workshops with Van Ngo. Premade stencils, safety-focused, no experience needed.",
+  "hero_eyebrow": "Micro-Tattoo Workshops",
+  "hero_heading": "Learn to tattoo, safely, from the ground up.",
+  "hero_text": "No experience needed. Van walks beginners through the fundamentals using premade stencils, with the same safety and hygiene standards a professional studio holds itself to.",
+  "hero_button_label": "See available dates",
+  "options_eyebrow": "Options",
+  "options_heading": "Choose your workshop",
+  "workshops": [
+    {
+      "badge": "Beginner",
+      "title": "Intro Workshop",
+      "text": "A single session covering tattoo fundamentals, machine handling, and premade stencil work.",
+      "price": "Price TBC",
+      "duration": "Duration TBC",
+      "button_label": "Book this workshop",
+      "button_link": "#booking",
+      "featured": false
+    },
+    {
+      "badge": "Most popular",
+      "title": "Full Micro-Tattoo Course",
+      "text": "The complete beginner-to-confident path: safety and hygiene training, stencil application, hands-on practice, and guided feedback.",
+      "price": "Price TBC",
+      "duration": "Duration TBC",
+      "button_label": "Book this workshop",
+      "button_link": "#booking",
+      "featured": true
+    },
+    {
+      "badge": "BC + Winnipeg",
+      "title": "Private & Group Sessions",
+      "text": "Booked privately or in small groups, with location and scheduling flexed around BC and Winnipeg availability.",
+      "price": "Price TBC",
+      "duration": "By arrangement",
+      "button_label": "Ask about this",
+      "button_link": "/contact/",
+      "featured": false
+    }
+  ],
+  "options_note": "Course names, durations and prices above are placeholders pending confirmation with Van.",
+  "why_eyebrow": "Good to know",
+  "why_heading": "Why beginners start here",
+  "steps": [
+    {
+      "title": "Safety comes first, not last",
+      "text": "Hygiene, cross-contamination and skin safety are built into every session rather than bolted on at the end."
+    },
+    {
+      "title": "Genuinely no experience required",
+      "text": "Premade stencils remove the drawing barrier, so your attention goes entirely into technique and depth control."
+    },
+    {
+      "title": "Small groups, real feedback",
+      "text": "Sessions stay small enough that Van can watch your hand and correct as you go."
+    }
+  ],
+  "callout_title": "Payment plans",
+  "callout_text": "Financing may be available for course fees through a third-party provider.",
+  "callout_note": "Placeholder — confirm the current provider and their approved disclosure wording before this goes live.",
+  "booking_eyebrow": "Reserve your spot",
+  "booking_heading": "Book a workshop"
+}

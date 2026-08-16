@@ -1,0 +1,597 @@
+# =============================================================================
+# Pages CMS configuration
+#
+# This file decides what Van sees when she logs in at app.pagescms.org.
+# Every field below becomes a labelled box in her editor. Anything NOT listed
+# here she cannot touch — which is the point. She can rewrite every word and
+# swap every photo without ever seeing HTML, and she cannot break the layout.
+#
+# To add a new editable thing, it takes three steps:
+#   1. add the field to the matching file in /content
+#   2. use it in build.mjs
+#   3. add it here so it shows up in the CMS
+# =============================================================================
+
+media:
+  input: assets/images
+  output: /assets/images
+  categories: [image]
+
+content:
+  # ---------------------------------------------------------------- settings
+  - name: settings
+    label: Site settings
+    type: file
+    path: content/settings.json
+    icon: settings
+    description: Logo, links, and the Instagram / reviews widgets. Applies to every page.
+    fields:
+      - name: logo
+        label: Logo
+        type: image
+        description: Shown in the header and footer. PNG with a transparent background works best.
+      - name: logo_alt
+        label: Logo description
+        type: string
+        description: Read aloud to blind visitors. Just the business name is fine.
+      - name: booking_url
+        label: Booking calendar address
+        type: string
+        description: Your Acuity link. The calendar embedded on the site comes from here.
+      - name: book_button_label
+        label: "\"Book Now\" button text"
+        type: string
+      - name: instagram_main
+        label: Instagram link (main)
+        type: string
+      - name: instagram_main_handle
+        label: Instagram handle (main)
+        type: string
+      - name: instagram_alt
+        label: Instagram link (second account)
+        type: string
+      - name: instagram_alt_handle
+        label: Instagram handle (second account)
+        type: string
+      - name: city
+        label: City
+        type: string
+      - name: legal_name
+        label: Legal business name
+        type: string
+        description: Shown in the copyright line at the very bottom.
+      - name: footer_blurb
+        label: Footer description
+        type: text
+      - name: instagram_widget
+        label: Instagram feed embed code
+        type: code
+        options:
+          language: html
+        description: >
+          Paste the code from your Instagram feed widget here. Leave empty and a
+          "Follow on Instagram" box shows instead. Nothing breaks either way.
+      - name: reviews_widget
+        label: Google reviews embed code
+        type: code
+        options:
+          language: html
+        description: >
+          Paste the code from your Google Reviews widget here. Leave empty and a
+          placeholder box shows instead.
+
+  # -------------------------------------------------------------------- home
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.json
+    icon: home
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+        description: The grey text under your link in Google results. Aim for 1-2 sentences.
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_heading_italic
+        label: Second line (shown in italic gold)
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: hero_image
+        label: Main photo
+        type: image
+      - name: hero_image_alt
+        label: Main photo description
+        type: string
+      - name: hero_button_1_label
+        label: First button text
+        type: string
+      - name: hero_button_1_link
+        label: First button link
+        type: string
+      - name: hero_button_2_label
+        label: Second button text
+        type: string
+      - name: hero_button_2_link
+        label: Second button link
+        type: string
+      - name: paths_eyebrow
+        label: "Section 2 — small label"
+        type: string
+      - name: paths_heading
+        label: "Section 2 — heading"
+        type: string
+      - name: paths
+        label: "Section 2 — the two cards"
+        type: object
+        list: true
+        fields:
+          - name: badge
+            label: Pill label
+            type: string
+          - name: title
+            label: Card title
+            type: string
+          - name: text
+            label: Card text
+            type: text
+          - name: button_label
+            label: Button text
+            type: string
+          - name: button_link
+            label: Button link
+            type: string
+          - name: featured
+            label: Highlight this card
+            type: boolean
+      - name: reviews_eyebrow
+        label: "Reviews — small label"
+        type: string
+      - name: reviews_heading
+        label: "Reviews — heading"
+        type: string
+      - name: gallery_eyebrow
+        label: "Gallery — small label"
+        type: string
+      - name: gallery_heading
+        label: "Gallery — heading"
+        type: string
+      - name: gallery
+        label: "Gallery — photos"
+        type: object
+        list: true
+        description: Add, remove or reorder. Leave a photo empty to show a placeholder box.
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: alt
+            label: Photo description
+            type: string
+          - name: size
+            label: Tile shape
+            type: select
+            options:
+              values:
+                - { value: tile-wide, label: Wide }
+                - { value: tile-tall, label: Tall }
+                - { value: tile-sq, label: Square }
+      - name: gallery_button_label
+        label: "Gallery — button text"
+        type: string
+      - name: instagram_eyebrow
+        label: "Instagram — small label"
+        type: string
+      - name: instagram_heading
+        label: "Instagram — heading"
+        type: string
+      - name: closing_heading
+        label: "Closing — heading"
+        type: string
+      - name: closing_text
+        label: "Closing — text"
+        type: text
+
+  # --------------------------------------------------------------- workshops
+  - name: workshops
+    label: Workshops page
+    type: file
+    path: content/workshops.json
+    icon: graduation-cap
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: hero_button_label
+        label: Button text
+        type: string
+      - name: options_eyebrow
+        label: "Workshops — small label"
+        type: string
+      - name: options_heading
+        label: "Workshops — heading"
+        type: string
+      - name: workshops
+        label: Your workshops
+        type: object
+        list: true
+        description: Add or remove workshops here. Each one becomes a card with its own price and Book button.
+        fields:
+          - name: badge
+            label: Pill label
+            type: string
+            description: 'Small tag at the top, e.g. "Most popular". Leave empty for none.'
+          - name: title
+            label: Workshop name
+            type: string
+          - name: text
+            label: Description
+            type: text
+          - name: price
+            label: Price
+            type: string
+            description: 'Type it exactly as you want it shown, e.g. "$450" or "From $450".'
+          - name: duration
+            label: Duration
+            type: string
+            description: 'e.g. "3 hours" or "2 days".'
+          - name: button_label
+            label: Button text
+            type: string
+          - name: button_link
+            label: Button link
+            type: string
+            description: 'Use "#booking" to jump to the calendar on this page.'
+          - name: featured
+            label: Highlight this workshop
+            type: boolean
+      - name: options_note
+        label: Small note under the workshops
+        type: text
+        description: Leave empty to hide it.
+      - name: why_eyebrow
+        label: "Why section — small label"
+        type: string
+      - name: why_heading
+        label: "Why section — heading"
+        type: string
+      - name: steps
+        label: "Why section — numbered points"
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Point title
+            type: string
+          - name: text
+            label: Point text
+            type: text
+      - name: callout_title
+        label: "Highlighted box — title"
+        type: string
+        description: Leave empty to hide the whole box.
+      - name: callout_text
+        label: "Highlighted box — text"
+        type: text
+      - name: callout_note
+        label: "Highlighted box — small print"
+        type: text
+      - name: booking_eyebrow
+        label: "Calendar — small label"
+        type: string
+      - name: booking_heading
+        label: "Calendar — heading"
+        type: string
+
+  # ----------------------------------------------------------- book a tattoo
+  - name: booking
+    label: Book a Tattoo page
+    type: file
+    path: content/booking.json
+    icon: calendar
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: hero_image
+        label: Main photo
+        type: image
+      - name: hero_image_alt
+        label: Main photo description
+        type: string
+      - name: hero_button_1_label
+        label: First button text
+        type: string
+      - name: hero_button_2_label
+        label: Second button text
+        type: string
+      - name: process_eyebrow
+        label: "Process — small label"
+        type: string
+      - name: process_heading
+        label: "Process — heading"
+        type: string
+      - name: steps
+        label: "Process — numbered steps"
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Step title
+            type: string
+          - name: text
+            label: Step text
+            type: text
+      - name: policy_eyebrow
+        label: "Policy — small label"
+        type: string
+      - name: policy_heading
+        label: "Policy — heading"
+        type: string
+      - name: policies
+        label: "Policy — rows"
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Left side
+            type: string
+          - name: value
+            label: Right side
+            type: string
+      - name: policy_note
+        label: "Policy — small note"
+        type: text
+      - name: booking_eyebrow
+        label: "Calendar — small label"
+        type: string
+      - name: booking_heading
+        label: "Calendar — heading"
+        type: string
+
+  # --------------------------------------------------------------- portfolio
+  - name: portfolio
+    label: Portfolio page
+    type: file
+    path: content/portfolio.json
+    icon: image
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: work_eyebrow
+        label: "Client work — small label"
+        type: string
+      - name: work_heading
+        label: "Client work — heading"
+        type: string
+      - name: tattoo_photos
+        label: Tattoo photos
+        type: object
+        list: true
+        description: Add as many as you like. Drag to reorder. Always write a description for each one.
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: alt
+            label: Photo description
+            type: string
+          - name: size
+            label: Tile shape
+            type: select
+            options:
+              values:
+                - { value: tile-wide, label: Wide }
+                - { value: tile-tall, label: Tall }
+                - { value: tile-sq, label: Square }
+      - name: classroom_eyebrow
+        label: "Workshop photos — small label"
+        type: string
+      - name: classroom_heading
+        label: "Workshop photos — heading"
+        type: string
+      - name: classroom_photos
+        label: Workshop photos
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: alt
+            label: Photo description
+            type: string
+          - name: size
+            label: Tile shape
+            type: select
+            options:
+              values:
+                - { value: tile-wide, label: Wide }
+                - { value: tile-tall, label: Tall }
+                - { value: tile-sq, label: Square }
+      - name: instagram_eyebrow
+        label: "Instagram — small label"
+        type: string
+      - name: instagram_heading
+        label: "Instagram — heading"
+        type: string
+      - name: cta_heading
+        label: Closing heading
+        type: string
+
+  # ------------------------------------------------------------------- about
+  - name: about
+    label: About page
+    type: file
+    path: content/about.json
+    icon: user
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: hero_image
+        label: Your photo
+        type: image
+      - name: hero_image_alt
+        label: Photo description
+        type: string
+      - name: blocks
+        label: Story cards
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Card title
+            type: string
+          - name: text
+            label: Card text
+            type: text
+          - name: featured
+            label: Highlight this card
+            type: boolean
+      - name: location_eyebrow
+        label: "Location — small label"
+        type: string
+      - name: location_heading
+        label: "Location — heading"
+        type: string
+      - name: info
+        label: "Location — rows"
+        type: object
+        list: true
+        description: Studio address, hours, anything visitors look for.
+        fields:
+          - name: label
+            label: Left side
+            type: string
+          - name: value
+            label: Right side
+            type: string
+      - name: closing_eyebrow
+        label: "Closing — small label"
+        type: string
+      - name: closing_heading
+        label: "Closing — heading"
+        type: string
+      - name: closing_text
+        label: "Closing — text"
+        type: text
+
+  # ----------------------------------------------------------------- contact
+  - name: contact
+    label: Contact page
+    type: file
+    path: content/contact.json
+    icon: mail
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google search description
+        type: text
+      - name: hero_eyebrow
+        label: Small label above the headline
+        type: string
+      - name: hero_heading
+        label: Main headline
+        type: string
+      - name: hero_text
+        label: Intro paragraph
+        type: text
+      - name: form_action
+        label: Form delivery address
+        type: string
+        description: >
+          Paste your Formspree address here (looks like
+          https://formspree.io/f/abcdwxyz) to switch the contact form on.
+          While this is empty the form does not send anywhere.
+      - name: form_note
+        label: Note under the form
+        type: text
+        description: Only shown while the form is switched off.
+      - name: info_eyebrow
+        label: "Contact details — small label"
+        type: string
+      - name: info_heading
+        label: "Contact details — heading"
+        type: string
+      - name: info
+        label: Contact details
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Left side
+            type: string
+          - name: value
+            label: Right side
+            type: string
+          - name: link
+            label: Link (optional)
+            type: string
+            description: Leave empty for plain text.
+      - name: follow_eyebrow
+        label: "Follow — small label"
+        type: string
+      - name: follow_heading
+        label: "Follow — heading"
+        type: string

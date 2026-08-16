@@ -1,249 +1,214 @@
-# Vie Glow website — how to look after it yourself
+# Vie Glow website — your instruction manual
 
-This is your instruction manual. You don't need to install anything, and you
-don't need to use a black terminal window. Everything here happens in a normal
-web browser.
+Everything you need is in one place: **https://app.pagescms.org**
 
-**Read Part 1 first.** It explains how the site works in plain terms, and the
-rest will make much more sense afterwards.
+Bookmark it. That is the whole website in one screen. You will never need to
+look at code, install anything, or press a publish button.
 
----
-
-## Part 1: How this site works (the 2-minute version)
-
-Think of it like a recipe binder.
-
-- **GitHub** is the binder. It holds the pages of the website.
-- **Vercel** is the kitchen. It reads the binder and cooks the live website.
-- **vieglow.ca** is the sign on the door that sends people to the kitchen.
-
-When you change a page in the binder, the kitchen notices within about a
-minute and re-cooks the site automatically. You never "publish" or "upload"
-anything. You just edit and save.
-
-**What this means for you:**
-
-- You only ever need to log into one place: **GitHub**
-- Changes go live on their own, about 60 seconds after you save
-- Every change you've ever made is saved forever, so nothing can be truly lost
-
-### The one habit that keeps you safe
-
-Every time you save a change, GitHub asks you to type a short note about what
-you changed. Always write something real, like "changed workshop price" — not
-"update". Future-you will thank present-you when something needs undoing.
+**Read Part 1 first.** It is two minutes and the rest will make sense after.
 
 ---
 
-## Part 2: Making a text change
+## Part 1 — How this works
 
-Let's say you want to change some wording on a page.
+Think of the website as a printed menu in a restaurant.
 
-- Go to https://github.com and log in
-- Click on your website repository (the folder with the site in it)
-- Find the file for the page you want to change:
+- **Pages CMS** is where you write the menu
+- Behind the scenes, a printer makes a fresh menu every time you change it
+- **vieglow.ca** is the menu on the table
 
-| Page on the website | File to open |
-|---|---|
-| Home page | `index.html` |
-| Workshops | `pages` folder → `workshops.html` |
-| Book a Tattoo | `pages` folder → `book-a-tattoo.html` |
-| Portfolio | `pages` folder → `portfolio.html` |
-| About | `pages` folder → `about.html` |
-| Contact | `pages` folder → `contact.html` |
+You write. It prints itself. Nobody has to press anything.
 
-- Click the file name to open it
-- Click the **pencil icon** near the top right (hover over it and it says "Edit")
-- You'll now see the page's text mixed in with a lot of pointy brackets like
-  `<p>` and `</p>`
+**What that means for you:**
 
-### The golden rule of editing
+- One website to log into, one password to remember
+- Changes appear on the real site about a minute after you save
+- Every version you have ever saved is kept forever, so nothing is truly lost
+- You cannot break the design. The colours, fonts and layout are locked.
 
-The words **between** the pointy brackets are yours to change.
-The pointy brackets themselves are not.
+### Logging in
 
-Example — this line:
+- Go to https://app.pagescms.org
+- Click **Sign in with GitHub**
+- Click the Vie Glow site
 
-```html
-<h3>Intro Workshop</h3>
-```
-
-You may safely change it to:
-
-```html
-<h3>Beginner Half-Day Workshop</h3>
-```
-
-You must **not** delete the `<h3>` or the `</h3>`. Those tell the browser it's
-a heading. Remove them and the page layout breaks.
-
-- Use **Ctrl+F** (Windows) or **Cmd+F** (Mac) to find the words you're looking for
-- Change only the words
-- Scroll to the bottom
-- In the box that says "Commit changes", type what you changed
-- Click the green **Commit changes** button
-- Wait about a minute, then refresh vieglow.ca to see it
+Down the left side you will see one entry per page of your website, plus
+**Site settings** at the top.
 
 ---
 
-## Part 3: Changing a price
+## Part 2 — Changing words
 
-Prices sit inside a tag called `price`. On the Workshops page, look for lines
-like this:
+Say you want to reword the Workshops page.
 
-```html
-<span class="price">Price TBC</span>
-<span class="duration">Duration TBC</span>
-```
+- Click **Workshops page** in the left menu
+- Scroll to the box you want, e.g. **Main headline**
+- Click into it and type
+- Click **Save** (top right)
+- Wait about a minute, then refresh vieglow.ca
 
-- Change `Price TBC` to your real price, for example `$950`
-- Change `Duration TBC` to the real length, for example `3 hours`
-- Leave `<span class="price">` and `</span>` exactly as they are
-- Save the same way as Part 2
+That is it. There is no publish step. Saving *is* publishing.
+
+Every box has a label saying exactly where it appears. **Small label above the
+headline** is the little gold text. **Intro paragraph** is the larger grey
+text underneath.
 
 ---
 
-## Part 4: Adding or swapping a photo
+## Part 3 — Changing prices
 
-This is two jobs: put the photo in, then point the page at it.
-
-### Job 1 — upload the photo
-
-- Before you start, make the photo smaller. Phone photos are enormous and will
-  make your site slow. Go to https://squoosh.app, drag your photo in, and
-  download the smaller version.
-- Give the file a simple name. Lowercase, no spaces. `brow-healed-01.jpg` is
-  good. `IMG 4432 (1).JPG` is bad.
-- In GitHub, click the `assets` folder, then the `images` folder
-- Click **Add file** → **Upload files**
-- Drag your photo in
-- Click **Commit changes**
-
-### Job 2 — point a page at the photo
-
-- Open the page file where you want the photo (see the table in Part 2)
-- Find a line that looks like this:
-
-```html
-<div class="placeholder tile-sq" role="img" aria-label="Placeholder for tattoo photo 2">Tattoo photo</div>
-```
-
-That grey striped box on the site is a placeholder. Replace that **whole line**
-with this, keeping the same `tile-` word:
-
-```html
-<img class="photo tile-sq" src="../assets/images/brow-healed-01.jpg" alt="Healed fine-line rose tattoo on a forearm">
-```
-
-- Change `brow-healed-01.jpg` to your actual file name
-- Change the `alt` text to a short plain description of the photo. This is what
-  blind visitors hear, and it helps you show up on Google. Always write it.
-- If you're editing `index.html` (the home page), use `assets/images/...`
-  **without** the `../` at the front. Every other page keeps the `../`.
+- Click **Workshops page**
+- Scroll to **Your workshops**
+- Each workshop is its own block, with **Price** and **Duration**
+- Type the price exactly how you want it to look: `$450`, or `From $450`,
+  or `$450 + tax` — whatever you type is what appears
 - Save
 
-### The tile sizes
-
-- `tile-wide` — a wide landscape box
-- `tile-tall` — a tall portrait box
-- `tile-sq` — a square box
-
-Keep the same tile word that was there before and the layout stays tidy.
-
 ---
 
-## Part 5: The booking calendar
+## Part 4 — Adding or removing a workshop
 
-Your Acuity calendar is embedded on the Workshops page and the Book a Tattoo
-page. You do **not** manage it from the website.
-
-- To add dates, change prices, or block time off, log into Acuity as normal
-- Changes appear on the website automatically — there is nothing to update here
-- The website is just a window looking at your Acuity calendar
-
----
-
-## Part 6: The Instagram feed and Google reviews
-
-Both of these are run by a widget service (the account set up during the
-build). Same idea as the calendar: you don't manage them from the website.
-
-- **Instagram feed** — updates itself when you post. Nothing to do.
-- **Google reviews** — updates itself when someone leaves a review. Nothing to do.
-- If either one stops showing, log into the widget dashboard and check whether
-  the connection to Instagram or Google needs re-authorising. Social platforms
-  make you reconnect every so often. That's normal and takes about two minutes.
-
-Keep the widget subscription paid. If it lapses, those two sections go blank.
-
----
-
-## Part 7: Undoing a mistake
-
-Nothing you do here is permanent. Every save is a snapshot you can go back to.
-
-- In GitHub, open the file you broke
-- Click **History** (top right of the file view)
-- You'll see a list of every change, newest first
-- Click the version from before you broke it
-- Click the **"..."** menu → **View file**
-- Click the pencil to edit, copy what's there, and paste it back over the
-  broken version
+- Click **Workshops page**, scroll to **Your workshops**
+- Click **+ Add** at the bottom of the list
+- Fill in the name, description, price, duration and button text
 - Save
 
-If that feels scary, stop and message Dez instead. That's genuinely fine — a
-broken site left alone for an hour is much better than a broken site someone
-panicked on.
+To remove one, click the **✕** on that block and save.
+
+To reorder them, drag a block up or down by its handle.
+
+**Highlight this workshop** is the on/off switch that makes one card stand out
+as the popular option. Only turn it on for one, or none of them stand out.
 
 ---
 
-## Part 8: What to never touch
+## Part 5 — Adding photos
 
-Leave these alone unless you know what you're doing:
+Photos live in two places: the **Portfolio page**, and the small gallery on
+the **Home page**.
 
-- `css/styles.css` — controls how everything looks. One wrong character and
-  the whole site loses its formatting.
-- `js/main.js` — controls the mobile menu and the contact form
-- `vercel.json` — deployment settings
-- Anything inside `<head>` at the top of a page file
-- Any line that starts with `<!--` — those are notes left by the person who
-  built it, not visible on the site
+### First — shrink the photo
+
+Photos straight off your phone are enormous and will make the site slow to
+load, which loses you customers.
+
+- Go to https://squoosh.app
+- Drag your photo onto the page
+- Download the smaller version
+
+Do this every time. It takes ten seconds.
+
+### Then — add it
+
+- Click **Portfolio page**
+- Scroll to **Tattoo photos**
+- Click **+ Add**
+- Click the **Photo** box and upload your file
+- Fill in **Photo description** — a short plain sentence like "Healed fine-line
+  rose on a forearm"
+- Choose a **Tile shape**: Wide, Tall or Square
+- Save
+
+**Always write the photo description.** Two reasons: blind visitors have it
+read aloud to them, and Google uses it to understand your photos. It is the
+single easiest thing you can do to help people find you.
+
+### Mixing tile shapes
+
+The gallery looks best when the shapes vary. A grid of six identical squares
+looks flat. Try wide, square, tall, wide, square, tall.
 
 ---
 
-## Part 9: Monthly 10-minute checkup
+## Part 6 — Your booking calendar
+
+The calendar on the site is a window looking at Acuity. You manage it in
+Acuity, exactly as you do now.
+
+- Add dates, change availability, block time off — all in Acuity
+- The website updates itself, there is nothing to do here
+
+The only related setting is **Site settings → Booking calendar address**, and
+that only changes if you ever move away from Acuity.
+
+---
+
+## Part 7 — Instagram feed and Google reviews
+
+Both update themselves. When you post to Instagram, it appears. When someone
+leaves a Google review, it appears.
+
+If either section goes blank, it usually means the connection needs
+re-approving — social platforms make you do this every so often. Log into the
+widget dashboard and reconnect. Takes about two minutes and is completely
+normal.
+
+Keep that subscription paid. If it lapses, both sections go blank.
+
+---
+
+## Part 8 — Undoing a mistake
+
+Nothing here is permanent.
+
+- In Pages CMS, open the page you changed
+- Click **History**
+- Pick the version from before the mistake
+- Restore it
+
+If that feels stressful, stop and message Dez instead. A page that looks wrong
+for an hour is much better than a page someone panicked on.
+
+---
+
+## Part 9 — Monthly ten-minute check
 
 Once a month, on your phone:
 
-- Open vieglow.ca and click through every page
-- Click the Book Now button and check the calendar loads
-- Check the Instagram section is showing recent posts
+- Open vieglow.ca and tap through every page
+- Tap **Book Now** and check the calendar loads
+- Check the Instagram section shows recent posts
 - Send yourself a message through the contact form and confirm it arrives
-- Check nothing still says "TBC" or "Placeholder"
+- Look for anything still saying "TBC" or "Placeholder"
 
 ---
 
-## Part 10: Who to call
+## Part 10 — What you cannot change, and why
 
-| Problem | Where to go |
+- Colours, fonts, spacing
+- Where sections sit on the page
+- Adding entirely new pages
+
+This is deliberate. It is what makes it safe for you to edit anything else
+without worrying. If you want a new section or a layout change, message Dez —
+it is a small job at his end.
+
+---
+
+## Part 11 — Who to contact
+
+| Problem | Who |
 |---|---|
-| Site is completely down | Vercel status page, then Dez |
+| Site completely down | Dez |
 | Booking calendar not loading | Acuity support |
-| Instagram or reviews section blank | Widget dashboard — check the connection |
+| Instagram or reviews blank | The widget dashboard — reconnect the account |
 | Contact form messages not arriving | The form service dashboard |
-| Domain or email trouble | Whoever hosts the domain (see DOMAIN-SETUP.md) |
-| You broke something and can't undo it | Dez |
+| Domain or email trouble | Dez |
+| You changed something and it looks wrong | Try History first, then Dez |
 
 ---
 
-## An honest note
+## A note on how this compares to WordPress
 
-Editing HTML in GitHub is more fiddly than WordPress was for simple text
-changes. What you get in exchange is a site that is far faster, essentially
-free to run, can't be hacked through a plugin, and will still work in five
-years without updates.
+This does less than WordPress did, on purpose.
 
-The realistic split is: you handle text and price changes and photos using this
-guide, and anything structural goes to Dez. If you find yourself wanting to
-change layout regularly, say so — that's a signal we should add a simple
-editing tool on top, not a signal that you're doing it wrong.
+WordPress let you change anything, which is exactly why it was overwhelming and
+why things broke. Here you can change every word, price and photo — the things
+that actually change month to month — and nothing else.
+
+In exchange you get a site that loads fast, costs nothing to run, cannot be
+hacked through an out-of-date plugin, and will still be working in five years
+with no updates to install.
+
+If you find yourself regularly wanting to do something this does not allow,
+say so. That is useful information, not a complaint.

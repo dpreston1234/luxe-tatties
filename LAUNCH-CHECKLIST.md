@@ -9,7 +9,7 @@ customers. Roughly ordered by what blocks what.
 
 | # | Item | Why it blocks launch |
 |---|---|---|
-| A1 | High-res logo file (SVG or PNG, transparent) | Header currently uses a typographic placeholder |
+| A1 | ~~High-res logo~~ — received, in place | Done |
 | A2 | Real workshop names, durations, prices | Every price on the site reads "Price TBC" |
 | A3 | Deposit policy for tattoo bookings | Stated as "TBC" on the booking page |
 | A4 | Studio address + hours | About page shows "Full address TBC" |
@@ -39,11 +39,10 @@ being framed. If the box shows up blank on the live site:
 - Log into Van's Acuity
 - Go to **Scheduling Page → Link → Direct Links & Embedding**
 - Pick the scheduler from the dropdown, click the **Embed Scheduler** tab, **Copy**
-- In `pages/workshops.html` and `pages/book-a-tattoo.html`, replace the whole
-  `<iframe>` block with what Acuity gave you (it carries her owner ID plus
-  Acuity's auto-resize script, which is strictly better than what's there now)
-
-Both files have a comment marking exactly where.
+- The calendar URL is now **Pages CMS → Site settings → Booking calendar
+  address**, so a simple URL change needs no code.
+- If you need Acuity's full embed snippet instead of the iframe, that is a
+  code change: see the `acuity()` function in `build.mjs`.
 
 ### B2 — Instagram feed
 
@@ -66,15 +65,15 @@ Steps:
 - Create the Elfsight account **on Van's own email**, not yours — she owns it
 - Build an Instagram Feed widget, connect @vieglow.ca
 - Copy the two-line snippet
-- Paste it into the marked slot in `index.html` and `pages/portfolio.html`
-- Delete the `.widget-fallback` div directly underneath (comments say where)
+- Paste it into **Pages CMS → Site settings → Instagram feed embed code**
+- Save. The fallback box disappears on its own — no file editing.
 
 ### B3 — Google reviews
 
 - Confirm the Google Business Profile exists and is verified (see A10)
 - Build a Google Reviews widget in the same Elfsight account
-- Paste into the marked slot in `index.html`
-- Delete the fallback div
+- Paste into **Pages CMS → Site settings → Google reviews embed code**
+- Save. Same deal — the fallback disappears by itself.
 
 **No sample review text was written into the site on purpose.** Inventing
 testimonials would be false advertising, and in Canada that's a Competition Act
@@ -85,10 +84,9 @@ problem, not just a taste problem.
 Not connected. Nothing submitted goes anywhere.
 
 - Sign up at formspree.io (free tier is 50 submissions/month)
-- Change the form tag in `pages/contact.html` to:
-  `<form id="contact-form" action="https://formspree.io/f/YOURID" method="post">`
-- Delete `data-demo="true"`
-- Delete the grey "not connected yet" note under the button
+- Paste the form address into **Pages CMS → Contact page → Form delivery address**
+- Save. The form switches from demo mode to live automatically and the grey
+  "not connected" note removes itself.
 - Send a test message and confirm it lands
 
 ### B5 — Analytics
@@ -131,6 +129,12 @@ vieglow.ca's DNS actually lives and whether she has @vieglow.ca email.
 
 ---
 
+## Content editing after handoff
+
+Van edits everything through Pages CMS at app.pagescms.org. See `CMS-SETUP.md`
+to connect it and `SOP-FOR-VAN.md` for her manual. Items A2 through A6 below
+can now be filled in by her directly rather than by you in code.
+
 ## What was already verified in this build
 
 - All internal links resolve (automated check, 6 pages)
@@ -141,3 +145,8 @@ vieglow.ca's DNS actually lives and whether she has @vieglow.ca email.
   6.3:1, accent text 5.5:1, all passing
 - Rendered and screenshotted at 1440px and 390px
 - Keyboard focus rings present, skip-link added, reduced-motion respected
+- Build runs clean from content files with zero dependencies
+- Every CMS field cross-checked against the content files — no orphan fields,
+  nothing uneditable that should be editable
+- CMS round trip tested: changed a price and added a fourth workshop from the
+  data file, confirmed both rendered

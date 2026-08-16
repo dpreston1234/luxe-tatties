@@ -1,0 +1,63 @@
+{
+  "title": "Portfolio — Vie Glow",
+  "description": "Fine-line and minimalist tattoo portfolio by Van Ngo, plus moments from the workshop floor.",
+  "hero_eyebrow": "Portfolio",
+  "hero_heading": "A closer look at the work.",
+  "hero_text": "Fine-line and minimalist tattoo pieces, alongside moments from the workshop floor.",
+  "work_eyebrow": "Tattoo work",
+  "work_heading": "Client pieces",
+  "tattoo_photos": [
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-wide"
+    },
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-sq"
+    },
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-tall"
+    },
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-wide"
+    },
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-sq"
+    },
+    {
+      "image": "",
+      "alt": "Tattoo photo",
+      "size": "tile-tall"
+    }
+  ],
+  "classroom_eyebrow": "Workshop moments",
+  "classroom_heading": "From the classroom",
+  "classroom_photos": [
+    {
+      "image": "/assets/images/van-studio-mirror.jpg",
+      "alt": "Van in the Vie Glow studio",
+      "size": "tile-sq"
+    },
+    {
+      "image": "",
+      "alt": "Workshop photo",
+      "size": "tile-sq"
+    },
+    {
+      "image": "",
+      "alt": "Workshop photo",
+      "size": "tile-sq"
+    }
+  ],
+  "instagram_eyebrow": "@vieglow.ca",
+  "instagram_heading": "Latest on Instagram",
+  "cta_heading": "Ready to book?"
+}

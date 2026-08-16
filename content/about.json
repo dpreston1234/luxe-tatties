@@ -1,0 +1,40 @@
+{
+  "title": "About Van — Vie Glow",
+  "description": "Meet Van Ngo, the artist and teacher behind Vie Glow Academy Inc.",
+  "hero_eyebrow": "About Van",
+  "hero_heading": "Teaching what she practices.",
+  "hero_text": "Van Ngo is the artist and teacher behind Vie Glow Academy Inc. She splits her time between guiding beginners through their first tattoos and taking on a small number of fine-line client pieces herself.",
+  "hero_image": "/assets/images/van-headshot.jpg",
+  "hero_image_alt": "Portrait of Van Ngo",
+  "blocks": [
+    {
+      "title": "Why she teaches",
+      "text": "Van built her workshops around the idea that tattooing shouldn't feel gatekept. Using premade stencils and a safety-first curriculum, she gives complete beginners a real, guided starting point — no experience necessary.",
+      "featured": false
+    },
+    {
+      "title": "Why she still tattoos",
+      "text": "Alongside teaching, Van keeps a small, intentional client roster for fine-line and minimalist work — the same craft she teaches, practised at a slower, more personal pace.",
+      "featured": true
+    }
+  ],
+  "location_eyebrow": "Where to find her",
+  "location_heading": "Location & hours",
+  "info": [
+    {
+      "label": "Studio",
+      "value": "Vancouver, British Columbia — full address TBC"
+    },
+    {
+      "label": "Workshops also in",
+      "value": "Winnipeg, Manitoba"
+    },
+    {
+      "label": "Hours",
+      "value": "By appointment — see the booking calendar"
+    }
+  ],
+  "closing_eyebrow": "Based in",
+  "closing_heading": "British Columbia & Winnipeg",
+  "closing_text": "Workshops run across BC, with sessions also offered in Winnipeg. Client tattoo bookings are based in Vancouver."
+}

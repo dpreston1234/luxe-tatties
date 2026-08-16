@@ -1,0 +1,55 @@
+{
+  "title": "Vie Glow — Learn to Tattoo & Book with Van Ngo",
+  "description": "Beginner micro-tattoo workshops and fine-line tattoo booking with Van Ngo, based in British Columbia.",
+  "hero_eyebrow": "Vie Glow Academy Inc.",
+  "hero_heading": "Where beauty meets the artist's line.",
+  "hero_heading_italic": "Ink becomes poetry upon the skin.",
+  "hero_text": "Beginner-friendly micro-tattoo workshops with premade stencils and a safety-first approach — no experience needed. Van also takes on a limited number of clients for fine-line, minimalist tattoo work.",
+  "hero_image": "/assets/images/van-studio-academy.jpg",
+  "hero_image_alt": "Van teaching students at the Vie Glow studio",
+  "hero_button_1_label": "Explore Workshops",
+  "hero_button_1_link": "/workshops/",
+  "hero_button_2_label": "Book a Tattoo",
+  "hero_button_2_link": "/book-a-tattoo/",
+  "paths_eyebrow": "Two ways to work with Van",
+  "paths_heading": "Learn the craft, or get tattooed by her directly",
+  "paths": [
+    {
+      "badge": "Leads the studio",
+      "title": "Micro-Tattoo Workshops",
+      "text": "Beginner-friendly, informational workshops using premade stencils. Safety-focused, no prior experience required. Based in BC, with sessions also offered in Winnipeg.",
+      "button_label": "See workshop details",
+      "button_link": "/workshops/",
+      "featured": true
+    },
+    {
+      "badge": "Limited availability",
+      "title": "Fine-Line Tattoo Booking",
+      "text": "A limited number of client appointments for delicate, minimalist tattoo work — small-studio, one-on-one, no rush.",
+      "button_label": "Book an appointment",
+      "button_link": "/book-a-tattoo/",
+      "featured": false
+    }
+  ],
+  "reviews_eyebrow": "What people say",
+  "reviews_heading": "Reviews",
+  "gallery_eyebrow": "A glimpse of the work",
+  "gallery_heading": "From the studio & the classroom",
+  "gallery": [
+    {
+      "image": "/assets/images/van-studio-hallway.jpg",
+      "alt": "The Vie Glow studio hallway",
+      "size": "tile-wide"
+    },
+    {
+      "image": "",
+      "alt": "Fine-line tattoo detail",
+      "size": "tile-tall"
+    }
+  ],
+  "gallery_button_label": "View full portfolio",
+  "instagram_eyebrow": "@vieglow.ca",
+  "instagram_heading": "Latest on Instagram",
+  "closing_heading": "Ready when you are.",
+  "closing_text": "Book a workshop spot or a tattoo appointment on the same calendar."
+}

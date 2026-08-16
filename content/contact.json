@@ -1,0 +1,35 @@
+{
+  "title": "Contact — Vie Glow",
+  "description": "Get in touch with Van Ngo about a workshop or a tattoo booking.",
+  "hero_eyebrow": "Get in touch",
+  "hero_heading": "Have a question? Send it over.",
+  "hero_text": "Whether it's about a workshop or booking a tattoo, this form reaches Van directly.",
+  "form_action": "",
+  "form_note": "This form is not connected yet — messages are not delivered. Paste a Formspree address into the CMS to switch it on.",
+  "info_eyebrow": "Other ways to reach Van",
+  "info_heading": "Direct contact",
+  "info": [
+    {
+      "label": "Email",
+      "value": "Email address TBC",
+      "link": ""
+    },
+    {
+      "label": "Booking calendar",
+      "value": "vieglow.as.me",
+      "link": "https://vieglow.as.me"
+    },
+    {
+      "label": "Instagram",
+      "value": "@vieglow.ca",
+      "link": "https://www.instagram.com/vieglow.ca/"
+    },
+    {
+      "label": "Location",
+      "value": "Vancouver, British Columbia",
+      "link": ""
+    }
+  ],
+  "follow_eyebrow": "Or follow along",
+  "follow_heading": "See the latest work"
+}
